@@ -1,0 +1,67 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.searchbox {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #969696;
+    border-radius: 4px;
+}
+
+
+.Fotos {
+    width: 100%;
+    max-width: 1200px;
+}
+
+
+#FotosLista {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
+    justify-content: center; 
+}
+
+
+.foto {
+    width: 200px; 
+    background-color: #fff;
+    border-style: solid;
+    overflow: hidden;
+    text-align: center;
+    padding: 8px;
+}
+
+
+.foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+
+
+footer {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-top: 20px;
+}
