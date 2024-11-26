@@ -19,7 +19,7 @@ public class Produto {
     @Column(name = "description", length = 255) //varchar(255)
     private String descricao;
     
-    @Column(name = "URLIMG", length = 2048) //varchar(255)
+    @Column(name = "URLIMG", length = 2048) //varchar(2048)
     private String url;
 
     
