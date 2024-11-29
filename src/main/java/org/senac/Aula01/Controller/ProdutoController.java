@@ -5,12 +5,16 @@ import java.util.List;
 import org.senac.Aula01.Model.Produto;
 import org.senac.Aula01.Repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -22,8 +26,13 @@ public class ProdutoController {
     private ProdutoRepository repository;
 
     @GetMapping
-    public List<Produto> get(){
-        return repository.findAll();
+    public List<Produto> get(@RequestParam(required = false, defaultValue = "nome") String order, 
+    @RequestParam(required = false, defaultValue = "asc") String direction)
+    {     
+        Sort s;
+        Direction dir = Direction.fromString(direction);
+        s = Sort.by(dir, order);
+        return repository.findAll(s);
     }
     @PostMapping   
     public Produto save(@RequestBody Produto produto){
