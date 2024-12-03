@@ -27,12 +27,15 @@ public class ProdutoController {
 
     @GetMapping
     public List<Produto> get(@RequestParam(required = false, defaultValue = "nome") String order, 
-    @RequestParam(required = false, defaultValue = "asc") String direction)
+    @RequestParam(required = false, defaultValue = "asc") String direction, @RequestParam(required = false) String filtro)
     {     
         Sort s;
         Direction dir = Direction.fromString(direction);
         s = Sort.by(dir, order);
+        if (filtro == null){
         return repository.findAll(s);
+        }
+        return repository.findByNomeContains(filtro, s);
     }
     @PostMapping   
     public Produto save(@RequestBody Produto produto){
@@ -45,7 +48,8 @@ public class ProdutoController {
     {
     "nome": "Caneta",
     "descricao": "Caneta preta",
-    "preco": 8.50
+    "preco": 8.50,
+    "url": ???
     }
     UPDATE
     {
