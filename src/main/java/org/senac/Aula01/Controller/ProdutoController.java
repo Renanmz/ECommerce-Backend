@@ -26,8 +26,10 @@ public class ProdutoController {
     private ProdutoRepository repository;
 
     @GetMapping
-    public List<Produto> get(@RequestParam(required = false, defaultValue = "nome") String order, 
-    @RequestParam(required = false, defaultValue = "asc") String direction, @RequestParam(required = false) String filtro)
+    public List<Produto> get(
+    @RequestParam(required = false, defaultValue = "nome") String order, 
+    @RequestParam(required = false, defaultValue = "asc") String direction, 
+    @RequestParam(required = false) String filtro)
     {     
         Sort s;
         Direction dir = Direction.fromString(direction);
@@ -46,18 +48,19 @@ public class ProdutoController {
     Postman : POST, raw, JSON
     INSERT
     {
-    "nome": "Caneta",
-    "descricao": "Caneta preta",
-    "preco": 8.50,
-    "url": ???
+    "nome": "Mesa",
+    "descricao": "Mesa de sala",
+    "preco": 1390,
+    "url": "https://www.kingliving.com.sg/pub/media/catalog/product/2/4/240622_kl_16_occasionals_coffee_tables_3269.jpg"
     }
     UPDATE
     {
-    "id": 1,
-    "nome": "Caneta X",
-    "descricao": "Caneta preta",
-    "preco": 8.50
-    } 
+    "id": 404,
+    "nome": "Mesa",
+    "descricao": "Mesa de sala",
+    "preco": 1390,
+    "url": "https://assets.weimgs.com/weimgs/rk/images/wcm/products/202428/0010/calla-coffee-table-48-xl.jpg"
+    }
     */
 
 
